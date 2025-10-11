@@ -1,30 +1,38 @@
 # 🇺🇳 Guess The Flag
 
-**Guess The Flag** es un divertido juego de iOS creado con **Swift** y **SwiftUI**, donde el jugador debe adivinar la bandera correcta entre tres opciones.  
-Cada acierto suma puntos, y el reto aumenta a medida que avanzas.
-
-##Caracteristicas 
-
-- Juego interactivo con interfaz simple e intuitiva.
-- Mejora tus conocimientos sobre banderas del mundo.
-- Sistema de puntuacion dinamico.
-- Diseño moderno hecho completamente en SwiftUI.  
-- Compatible con iPhone y iPad
+**Guess The Flag** is a fun iOS game built with **Swift** and **SwiftUI**, where the player must guess the correct flag among three options.  
+Each correct answer earns points, and the challenge increases as you progress.
 
 ---
-## Tecnologias utilizadas
 
-- **Lenguaje:** Swift  
+## 🕹️ Features
+
+- Interactive gameplay with a simple and intuitive interface.  
+- Improve your knowledge of world flags.  
+- Dynamic scoring system.  
+- Modern design built entirely with SwiftUI.  
+- Compatible with iPhone and iPad.  
+
+---
+
+## 🧰 Technologies Used
+
+- **Language:** Swift  
 - **Framework:** SwiftUI  
 - **IDE:** Xcode  
-- **Sistema operativo objetivo:** iOS 17+
+- **Target OS:** iOS 17+  
 
+---
 
-![Guess The Flag](https://github.com/user-attachments/assets/0d866589-8afb-4a43-b68e-116d749ff8a8)
+## 🖼️ Screenshot
 
+<img width="478" height="925" alt="Guess The Flag Screenshot" src="https://github.com/user-attachments/assets/0d866589-8afb-4a43-b68e-116d749ff8a8" />
 
-## Como ejecutar el proyecto 
-- Clonar el repositorio.
-- Abre el proyecto en Xcode.
-- Selecciona un similudor o tu dispositivo fisico.
-- Presiona Run para ejecutar la App.
+---
+
+## 🚀 How to Run the Project
+
+Clone this repository.
+Open the project in Xcode.
+Select a simulator or your physical device.
+Press Run ▶️ to launch the app.
