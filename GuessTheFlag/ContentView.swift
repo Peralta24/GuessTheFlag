@@ -1,5 +1,22 @@
 import SwiftUI
 
+struct CapsuleImageStyle: ViewModifier {
+    var shadowRadius: CGFloat = 5
+    
+    func body(content: Content) -> some View {
+        content
+            .clipShape(Capsule())
+            .shadow(radius: shadowRadius)
+    }
+}
+
+extension View {
+    func capsuleImageStyle(shadowRadius: CGFloat = 5) -> some View {
+        modifier(CapsuleImageStyle(shadowRadius: shadowRadius))
+    }
+}
+
+
 struct ContentView: View {
     
     // Lista de países
@@ -17,6 +34,7 @@ struct ContentView: View {
     
     @State private var selectedFlag : Int? = nil
     
+
     var body: some View {
         ZStack {
             RadialGradient(stops: [
@@ -31,7 +49,7 @@ struct ContentView: View {
                 Text("Guess the Flag")
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(puntuacionUsuario > 5 ? .yellow : .white)
                 
                 VStack(spacing: 15) {
                     VStack {
@@ -50,8 +68,7 @@ struct ContentView: View {
                             }
                         } label: {
                             Image(countries[number])
-                                .clipShape(.capsule)
-                                .shadow(radius: 5)
+                                .capsuleImageStyle()
                                 // --- INICIO DE MODIFICADORES NUEVOS ---
                                 .rotation3DEffect(
                                     .degrees(selectedFlag == number ? 360 : 0),
@@ -71,11 +88,11 @@ struct ContentView: View {
                 Spacer()
                 Spacer()
                 Text("Total de Preguntas: \(totalPreguntas)")
-                    .foregroundStyle(.white)
+                    .foregroundStyle(totalPreguntas == 1 ? .green : .white)
                     .fontWeight(.bold)
                     .font(.title3)
                 Text("Score: \(puntuacionUsuario)")
-                    .foregroundStyle(.white)
+                    .foregroundStyle(puntuacionUsuario < 4 ? .black : .green)
                     .fontWeight(.bold)
                     .font(.title3)
                 
