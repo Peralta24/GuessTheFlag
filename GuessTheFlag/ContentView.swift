@@ -22,6 +22,21 @@ struct ContentView: View {
     // Lista de países
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
     
+
+    let labels = [
+        "Estonia": "Flag with three horizontal stripes. Top stripe blue, middle stripe black, bottom strip white",
+        "France": "Flag with three vertical stripes. Left stripe blue, middle stripe white, right strip red",
+        "Germany": "Flag with three horizontal stripes. Top stripe black, middle stripe red, bottom strip yellow",
+        "Ireland": "Flag with three vertical stripes. Left stripe green, middle stripe white, right stripe orange",
+        "Italy": "Flag with three vertical stripes. Left stripe green, middle stripe white, right strip red",
+        "Nigeria": "Flag with three vertical stripes. Left stripe green, middle stripe white, right strip green",
+        "Poland": "Flag with two horizontal stripes. Top stripe white, bottom stripe red",
+        "Spain": "Flag with three horizontal stripes. Top thin stripe red, middle thick stripe is gold with crest on the left, botoom strip red. ",
+        "UK": "Flag with overlapping red and white crosses, both straight and diagonally, on a blue background",
+        "Ukraine": "Flag with two horizontal stripe. Top strip blue, bottom stripe yellow.",
+        "US": "Flag with many red and with stripes, with white starts on a blue background in the top-left corner."
+    ]
+    
     // Respuesta correcta
     @State private var correctAnswer = Int.random(in: 0...2)
     
@@ -62,22 +77,20 @@ struct ContentView: View {
                     
                     ForEach(0..<3) { number in
                         Button {
-                            // Añadimos una animación explícita para el cambio de estado
                             withAnimation {
                                 flaggTapped(number)
                             }
                         } label: {
                             Image(countries[number])
                                 .capsuleImageStyle()
-                                // --- INICIO DE MODIFICADORES NUEVOS ---
                                 .rotation3DEffect(
                                     .degrees(selectedFlag == number ? 360 : 0),
                                     axis: (x: 0.0, y: 1.0, z: 0.0)
                                 )
                                 .opacity(selectedFlag == nil || selectedFlag == number ? 1.0 : 0.25)
                                 .scaleEffect(selectedFlag == nil || selectedFlag == number ? 1.0 : 0.75)
-                                // --- FIN DE MODIFICADORES NUEVOS ---
                         }
+                        .accessibilityLabel(labels[countries[number],default: "Unknown flag"])
                     }
                 }
                 .frame(maxWidth: .infinity)
